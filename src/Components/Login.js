@@ -1,4 +1,4 @@
-import { useState, useRef, useDebugValue } from "react";
+import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidation } from "../Utils/Validate";
 import {
@@ -7,14 +7,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../Utils/userSlice";
+import { SIGNOUT } from "../Utils/constant";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const name = useRef(null);
   const email = useRef(null);
@@ -40,8 +39,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://icon-library.com/images/sign-out-icon/sign-out-icon-11.jpg",
+            photoURL: SIGNOUT,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -53,19 +51,16 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
             });
-          console.log(user);
 
           // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorCode + "-" + errorMessage);
         });
     } else {
       //sign in
@@ -76,9 +71,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/browse");
+          const user = userCredential.use;
           // ...
         })
         .catch((error) => {
