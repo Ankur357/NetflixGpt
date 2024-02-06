@@ -37,7 +37,11 @@
 - GPT search Feature
 - GPT search bar
 - Add gpt api
-- Show Recommended Movies
+- Gpt search api call
+- Fetched Recommended Movies suggestion from TMDB
+- Create Gpt slice added data
+- Memoization
+- Make Website Resoponsive
 
 # Features
 
