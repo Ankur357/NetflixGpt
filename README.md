@@ -21,7 +21,7 @@
 - Add hardcoded values to constant file
 - Get data from TMDB api for movies;
 - custom hook for Now Playing Movies
-- create a movie slive
+- create a movie slice
 - update store with movie data
 - Make Maincontainer and secondContainer
 - Fetch trailer video
@@ -36,7 +36,8 @@
 - usePopular custom hook
 - GPT search Feature
 - GPT search bar
--
+- Add gpt api
+- Show Recommended Movies
 
 # Features
 

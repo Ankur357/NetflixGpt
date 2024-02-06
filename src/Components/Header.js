@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from "../Utils/userSlice";
 import { LOGO } from "../Utils/constant";
-import { toggleGptSearch } from "../Utils/gptSlice";
+import { addGptMoviesResult, toggleGptSearch } from "../Utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -49,6 +49,7 @@ const Header = () => {
 
   const handleGptSearch = () => {
     dispatch(toggleGptSearch());
+    dispatch(addGptMoviesResult({ movieName: null, movieResults: null }));
   };
 
   return (
