@@ -34,6 +34,9 @@
 - TMDB image cdn
 - Made browse page amazing with tailwindcss
 - usePopular custom hook
+- GPT search Feature
+- GPT search bar
+-
 
 # Features
 
