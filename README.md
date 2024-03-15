@@ -1,5 +1,10 @@
 # Create Netflix Gpt
 
+Test User Login:
+email: test@gmail.com
+passwor: Testuser@123
+
+
 - create react app
 - configure tailwind css
 - Header
